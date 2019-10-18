@@ -3,6 +3,8 @@ package com.luv2code.springboot.thymeleafdemo.controller;
 
 import com.luv2code.springboot.thymeleafdemo.model.Employee;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
@@ -33,4 +35,12 @@ public class EmployeeController {
         theEmployees.add(emp4);
     }
     // add mapping for "/list"
+
+    @GetMapping("/list")
+    public String listEmployees(Model theModel) {
+        // add to the spring model
+        theModel.addAttribute("employees", theEmployees);
+
+        return "list-employees";
+    }
 }
