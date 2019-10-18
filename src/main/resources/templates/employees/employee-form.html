@@ -19,6 +19,9 @@
     <p class="h4 mb-4">Save Employee</p>
     <form action="#" th:action="@{/employees/save}"
           th:object="${employee}" method="POST">
+
+        <!-- Add hidden field to handle the update-->
+        <input type="hidden" th:field="*{id}"/>
         <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4" placegolder="First name">
         <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4" placegolder="Last name">
         <input type="text" th:field="*{email}" class="form-control mb-4 col-4" placegolder="email">
